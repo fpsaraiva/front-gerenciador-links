@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-function AppLayout() {
+function ApplicationLayout() {
     return (
         <>
-        <h1>Header da página</h1>
+        <h1>Header da aplicação</h1>
         <div>
             <Outlet />
         </div>
@@ -11,4 +11,4 @@ function AppLayout() {
     )
 }
 
-export default AppLayout
+export default ApplicationLayout

@@ -4,7 +4,7 @@ function SignIn() {
     return (
         <>
             <h1>SignIn</h1>
-            <Button>Clique aqui</Button>
+            <Button>Logar</Button>
         </>
     )
 }
