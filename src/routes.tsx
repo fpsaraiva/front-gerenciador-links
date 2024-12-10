@@ -5,11 +5,13 @@ import SignIn from './pages/auth/sign-in'
 import SignUp from './pages/auth/sign-up'
 import ApplicationLayout from './pages/layouts/application'
 import AuthenticationLayout from './pages/layouts/authentication'
+import PageNotFound from './pages/pagenotfound'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <ApplicationLayout />,
+    errorElement: <PageNotFound />,
     children: [
       {
         path: '/',
