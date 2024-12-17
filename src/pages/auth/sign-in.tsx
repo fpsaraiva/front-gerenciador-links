@@ -1,18 +1,22 @@
+import { api } from "@/api/axios";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignIn() {
     const { register, reset, handleSubmit, watch } = useForm();
+    const navigate = useNavigate()
     const inputsFormulario = watch();
 
-    const formValido = inputsFormulario.email?.trim() && inputsFormulario.password?.trim();
+    const formValido = inputsFormulario.username?.trim() && inputsFormulario.password?.trim();
 
-    function handleSignIn(data: any) {
-        console.log(data);
-        reset({ email: '', password: '' });
+    async function handleSignIn(data: any) {
+        const response = await api.post('/login', data);
+        console.log(response.data);
+        reset({ username: '', password: '' });
+        navigate('/');
     }
 
     return (
@@ -27,7 +31,7 @@ function SignIn() {
                 <form className="space-y-4" onSubmit={handleSubmit(handleSignIn)}>
                     <div className="space-y-2">
                         <Label>Digite o seu email</Label>
-                        <Input type="email" {...register('email')}/>
+                        <Input type="username" {...register('username')}/>
                     </div>
                     <div >
                         <Label htmlFor="">Digite a sua senha</Label>

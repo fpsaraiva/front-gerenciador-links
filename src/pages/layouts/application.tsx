@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
+import { AppSidebar } from "@/components/app-sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 function ApplicationLayout() {
     return (
-        <>
-        <h1>Header da aplicação</h1>
-        <div>
-            <Outlet />
-        </div>
-        </>
+        <SidebarProvider>
+            <AppSidebar />
+            <div>
+                <Outlet />
+            </div>
+        </SidebarProvider>
     )
 }
 
